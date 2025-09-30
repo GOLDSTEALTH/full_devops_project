@@ -13,14 +13,16 @@ pipeline {
         }
         stage('Lint') {
             steps {
-                sh 'pip install flake8'
-                sh 'flake8 flask_project.py' // Change filename if needed
+                // Install flake8 and run lint
+                sh 'pip3 install flake8'
+                sh 'flake8 flask_project.py'
             }
         }
         stage('Test') {
             steps {
-                sh 'pip install pytest'
-                sh 'pytest flask_project.py' // Change filename if needed
+                // Install pytest and run tests
+                sh 'pip3 install pytest'
+                sh 'pytest flask_project.py'
             }
         }
         stage('Build Docker Image') {
